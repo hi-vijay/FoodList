@@ -3,6 +3,7 @@ import {View, TextInput, Image, StyleSheet, Pressable} from 'react-native';
 
 const ICON_SIZE = 22;
 const PLACE_HOLDER_TEXT = 'Try searching for healty food...';
+
 const SearchBox = props => {
   const handleFocus = () => {
     console.log('focused');
@@ -20,7 +21,7 @@ const SearchBox = props => {
       />
       <TextInput
         style={textInputStyle}
-        //onChangeText={val => props.onChangeText(val)}
+        onChangeText={val => props.searchText(val)}
         onFocus={handleFocus}
         onBlur={handleBlur}
         placeholder={PLACE_HOLDER_TEXT}

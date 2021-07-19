@@ -22,7 +22,6 @@ const FoodCategory = props => {
     servingText = '',
   } = props.foodItemList.category;
 
-  console.log('name= ', categoryName);
   const {
     rootContainerStyle,
     arrowStyle,
