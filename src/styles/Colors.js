@@ -1,0 +1,10 @@
+const COLORS = {
+  BLACK: '#000',
+  WHITE: '#FFF',
+  BACKGROUND_THEME_COLOR: '#f0f8ff',
+  TEXT_COLOR: '#292a2b',
+  SEPARATOR_LINE_COLOR: '#f0f1f5',
+  BG_TRANSPARENT: '#000000',
+};
+
+export default COLORS;
