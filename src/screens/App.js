@@ -15,6 +15,7 @@ import FoodCategory from '../common/components/FoodCategory';
 import LoadingScreen from '../common/components/LoadingScreen';
 import COLORS from '../styles/Colors';
 import RestService from '../restService/FoodRepository';
+import Tiles from '../common/components/Tiles';
 
 const App = () => {
   const [foodItemList, setFoodItemList] = useState([]);
@@ -119,7 +120,8 @@ const App = () => {
                   source={require('../assets/images/ic_close.png')}
                 />
               </TouchableOpacity>
-              <SearchBox searchText={val => searchText(val)} />
+              <Text style={styles.titleStyle}>Approved food List</Text>
+              <SearchBox searchText={value => searchText(value)} />
               {!isLoading &&
                 foodItemList.map((items, index) => {
                   return (
@@ -136,9 +138,29 @@ const App = () => {
           </ScrollView>
         </Modal>
       )}
-      <TouchableOpacity onPress={() => setModalVisibility(!modalVisible)}>
-        <Text>Open the sheet</Text>
-      </TouchableOpacity>
+      <View style={styles.tilesRootContainer}>
+        <View style={styles.tileContainer}>
+          <Tiles
+            text={'View Approved food list'}
+            onClick={() => setModalVisibility(!modalVisible)}
+          />
+        </View>
+        <View style={styles.tileContainer}>
+          <Tiles text={'Weight'} />
+        </View>
+        <View style={styles.tileContainer}>
+          <Tiles text={'Water Intake'} />
+        </View>
+        <View style={styles.tileContainer}>
+          <Tiles text={'Body measurements'} />
+        </View>
+        <View style={styles.tileContainer}>
+          <Tiles text={'Inches Lost'} />
+        </View>
+        <View style={styles.tileContainer}>
+          <Tiles text={'Day performance'} />
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -155,7 +177,25 @@ const styles = StyleSheet.create({
   closeImageStyle: {
     width: 60,
     height: 60,
-    marginVertical: 12,
+    marginTop: 16,
+  },
+  tilesRootContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    padding: 8,
+  },
+  tileContainer: {
+    width: '50%',
+    aspectRatio: 1,
+    padding: 8,
+  },
+  titleStyle: {
+    fontSize: 28,
+    fontWeight: '600',
+    lineHeight: 36,
+    marginTop: 18,
+    marginBottom: 18,
   },
 });
 

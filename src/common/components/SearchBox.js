@@ -1,5 +1,5 @@
-import React, {useRef, useState} from 'react';
-import {View, TextInput, Image, StyleSheet, Pressable} from 'react-native';
+import React from 'react';
+import {TouchableOpacity, TextInput, Image, StyleSheet} from 'react-native';
 
 const ICON_SIZE = 22;
 const PLACE_HOLDER_TEXT = 'Try searching for healty food...';
@@ -14,7 +14,7 @@ const SearchBox = props => {
 
   const {rootContainerStyle, startIconStyle, textInputStyle} = styles;
   return (
-    <View style={[rootContainerStyle]}>
+    <TouchableOpacity activeOpacity={1} style={[rootContainerStyle]}>
       <Image
         style={startIconStyle}
         source={require('../../assets/images/search.png')}
@@ -27,7 +27,7 @@ const SearchBox = props => {
         placeholder={PLACE_HOLDER_TEXT}
         maxLength={28}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -36,7 +36,7 @@ export default SearchBox;
 const styles = StyleSheet.create({
   rootContainerStyle: {
     flexDirection: 'row',
-    padding: 18,
+    paddingHorizontal: 18,
     borderRadius: 6,
     backgroundColor: '#dae5ed',
     alignItems: 'center',
@@ -51,7 +51,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textInputStyle: {
+    width: '100%',
     paddingStart: 32,
+    paddingVertical: 18,
     fontSize: 16,
     fontWeight: '500',
   },
